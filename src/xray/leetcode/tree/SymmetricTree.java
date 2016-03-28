@@ -5,7 +5,7 @@ package xray.leetcode.tree;
  */
 public class SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
-        if(root==null){
+        if(root==null){ //isMirror cannot handle this, so need this here
             return true;
         }
         
