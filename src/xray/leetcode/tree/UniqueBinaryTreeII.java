@@ -48,11 +48,15 @@ import java.util.*;
  * rightTree is similar, it is from k+1 to right. 
  * 
  * with the null tree handling, there is at least one entry even null in the left/right list, therefore, we can safely create a new node in the double loop and connect with them        
- *         
+ * [python]
+ *
  */
 public class UniqueBinaryTreeII {
     public List<TreeNode> generateTrees(int n) {
-        return generateTrees(1, n); 
+        if(n<=0){
+            return new ArrayList<TreeNode>();
+        }
+        return generateTrees(1, n);
     }
     /*
      * left start number
@@ -60,15 +64,21 @@ public class UniqueBinaryTreeII {
      */
     private List<TreeNode> generateTrees(int left, int right){
         List<TreeNode> res = new ArrayList<TreeNode>();
-        
-        if(left>right){ //when left == right, still one node, only when left > right, there is no node, however, no node means null tree
+
+        /*
+        when left == right, still one node, only when left > right, there is no node, however, no node means null tree.
+        Note that this is necessary:
+        Since we are using the numbers between left and right to construct the tree,
+        we need a way to denote the f(0) i.e. null tree, and this is an easy way to go without special case for null.
+         */
+        if(left>right){
             res.add(null);
             return res;
         }
         
-        for(int k=left;k<=right;k++){ //inclusive, so = and =, k means picking k as the root, 
+        for(int k=left;k<=right;k++){ //inclusive, so = and =, k means picking k as the root,
             List<TreeNode> leftlist = generateTrees(left, k-1); //since k is picked for, left would be k - 1
-            List<TreeNode> rightlist = generateTrees(k+1, right); //
+            List<TreeNode> rightlist = generateTrees(k+1, right);
             
             for(TreeNode leftTree : leftlist){ //thanks to the null tree, we can loop through
                 for(TreeNode rightTree : rightlist){

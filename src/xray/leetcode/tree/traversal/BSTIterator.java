@@ -8,7 +8,9 @@ package xray.leetcode.tree.traversal;
  * use a stack to save all nodes from root to the left most children
  * 
  * when popping, pushAllLeft of the right node if not null
- * 
+ *
+ * [python]
+ *
  */
 
 import xray.leetcode.tree.*;
