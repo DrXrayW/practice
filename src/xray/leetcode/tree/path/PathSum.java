@@ -18,6 +18,9 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 Subscribe to see which companies asked this question
 
 IDEA: pass the sum down, deducting the root val, if reaching leaf and it is 0, then return true.
+
+[python]
+
  */
 
 public class PathSum {
