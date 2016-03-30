@@ -11,6 +11,9 @@ import xray.leetcode.tree.TreeNode;
  * 2. the max none negative sum path with one end being the root
  *
  * The Node can be something else like a list or any structure that can hold reference.
+ *
+ * [python]
+ *
  */
 
 public class BinaryTreeMaximumPathSum01 {
@@ -47,6 +50,16 @@ public class BinaryTreeMaximumPathSum01 {
         long sum = root.val + left + right; //TIP: This is the only option left from toRoot, even if left or right is not contributing
         maxPath.val = Math.max(maxPath.val, sum); //update the tracked max path
         return toRoot > 0 ? toRoot : 0;  //this means the subtree will never return a negative, so we can assume adding it won't be as bad
+
+        /*
+        A note on when there is negative values.
+
+        See that toRoot stops the negative values being passed to the root.
+        However, when updating maxPath, it always contains the root.val.
+        That means we will count the node value in the max.
+        So we need the interger.min_value to be as the minimal for max.
+
+         */
     }
 }
 
