@@ -6,7 +6,11 @@ import xray.leetcode.tree.TreeNode;
  * 
  * IDEA: post order traverse, get the max to root path length for left and right, 
 
- * 
+ * tracking two numbers:
+ * 1. the max path sum of the tree
+ * 2. the max none negative sum path with one end being the root
+ *
+ * The Node can be something else like a list or any structure that can hold reference.
  */
 
 public class BinaryTreeMaximumPathSum01 {
