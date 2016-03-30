@@ -3,6 +3,21 @@ package xray.leetcode.tree.traversal;
 import java.util.*;
 import xray.leetcode.tree.TreeNode;
 
+/*
+Given preorder and inorder traversal of a tree, construct the binary tree.
+
+Note:
+You may assume that duplicates do not exist in the tree.
+
+If there is dup, then it is hard! So no dup is essential!
+
+We know that the preorder starts with the root.
+So we can find its position in inorder, then break the two parts into left and right.
+
+That is why a map of the inorder position is created to avoid scanning multiple times.
+[python]
+ */
+
 public class ConstructBinaryTreefromPreorderandInorderTraversal01 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if( (preorder==null)||(inorder==null)||(preorder.length==0)||(inorder.length==0) ){
@@ -20,6 +35,7 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal01 {
     }
     
     private TreeNode buildTree(int[] preorder, int pre_s, int pre_e, int[] inorder, int in_s, int in_e, Map<Integer, Integer> inorderPos){
+        //the conditions on the ends can be removed
         if((pre_s>pre_e)||(pre_s>=preorder.length)||(pre_e>=preorder.length)||in_s>=preorder.length||in_e>=preorder.length){
             return null;
         }

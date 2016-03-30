@@ -6,7 +6,9 @@ import xray.leetcode.tree.TreeNode;
  * but return negative or null to indicate the balance is broken
  * 
  * O(n) runtime, O(n) stack space (worst case link list), but generally, O(logn) space
- * 
+ *
+ * [python]
+ *
  */
 public class BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {

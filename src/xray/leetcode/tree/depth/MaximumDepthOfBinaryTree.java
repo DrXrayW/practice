@@ -1,7 +1,9 @@
 package xray.leetcode.tree.depth;
 
 import xray.leetcode.tree.TreeNode;
-
+/*
+[python]
+ */
 public class MaximumDepthOfBinaryTree {
     public int maxDepth(TreeNode root) {
         if(root==null){ //null is 0

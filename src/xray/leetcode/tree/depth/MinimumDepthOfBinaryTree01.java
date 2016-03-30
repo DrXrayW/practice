@@ -5,6 +5,8 @@ import xray.leetcode.tree.TreeNode;
  * O(n) runtime, O(log n) space
  * 
  * The trick here is that null sub tree counts for no existing
+ *
+ * [python]
  */
 public class MinimumDepthOfBinaryTree01 {
     public int minDepth(TreeNode root) {

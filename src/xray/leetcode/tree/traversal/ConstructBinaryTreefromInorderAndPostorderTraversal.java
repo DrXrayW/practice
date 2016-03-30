@@ -4,6 +4,10 @@ import java.util.*;
 
 import xray.leetcode.tree.TreeNode;
 
+/*
+[python]
+ */
+
 public class ConstructBinaryTreefromInorderAndPostorderTraversal {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if( (postorder==null)||(inorder==null)||(postorder.length==0)||(inorder.length==0) ){
