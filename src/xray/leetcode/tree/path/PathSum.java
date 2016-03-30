@@ -1,10 +1,32 @@
 package xray.leetcode.tree.path;
 
 import xray.leetcode.tree.TreeNode;
+/*
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
+For example:
+Given the below binary tree and sum = 22,
+              5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \      \
+        7    2      1
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+
+Subscribe to see which companies asked this question
+
+IDEA: pass the sum down, deducting the root val, if reaching leaf and it is 0, then return true.
+ */
 
 public class PathSum {
     public boolean hasPathSum(TreeNode root, int sum) {
-        if(root==null){
+        /*
+        note that we cannot determine the sum == 0 here,
+        as we do not know whether the parent is a leaf (it may have another child)
+         */
+        if(root==null){ //this is necessary for leaf node,
             return false;
         }
         
