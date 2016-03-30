@@ -24,7 +24,10 @@ import java.util.*;
  *
  * f(3) = f(0)*f(2) + f(1)*f(1) + f(2)*f(0)
  *       
- * so we have fi = fi = sigma(k=0 to i-1): f(k)*f(i-1-k)          
+ * so we have fi = fi = sigma(k=0 to i-1): f(k)*f(i-1-k)
+  * [python]
+  *
+  *
  */
 public class UniqueBinaryTree {
     public int numTrees(int n) {
@@ -34,7 +37,7 @@ public class UniqueBinaryTree {
         for(int i=1;i<=n;i++){ //n times from 1
             int fi = 0;
             for(int k=0;k<i;k++){ 
-                fi += f.get(k) * f.get(i-1-k);
+                fi += f.get(k) * f.get(i-1-k); //notice the sum of each one is i - 1, NOTE it is * not +
             }
             f.add(fi);
         }

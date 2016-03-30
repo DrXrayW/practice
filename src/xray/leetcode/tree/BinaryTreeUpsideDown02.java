@@ -8,6 +8,7 @@ package xray.leetcode.tree;
  / \
 4   5
 
+[python]
 
 post order traverse, 
 actually, it says that the right side won't need to traverse
@@ -32,6 +33,16 @@ then return the new root as left (only when left most).
  
  
  Another Recursion
+
+
+ NOTES:
+ 1. the root is the root of the new resultant tree.  Since we must pass it back, we are carrying it on from bottom.
+ However, it is NOT part of the structural change.
+
+ 2. the structure change is only among the current node, its parent, and its parent.right;
+ the current node (as the parent.left), will be the new parent;
+ the parent.right will be the new left
+ the parent will be the new right
  */
 public class BinaryTreeUpsideDown02 {
     public TreeNode UpsideDownBinaryTree(TreeNode root) {
@@ -39,8 +50,8 @@ public class BinaryTreeUpsideDown02 {
     }
     
     private TreeNode dfsBottomUp(TreeNode p, TreeNode parent) {
-	    if (p == null) return parent;
-	    TreeNode root = dfsBottomUp(p.left, p);
+	    if (p == null) return parent; //the parent is old parent, return the new root
+	    TreeNode root = dfsBottomUp(p.left, p); //recurse until p.left is null, the root here is the new root of the result tree
 	    p.left = (parent == null) ? null : parent.right;  //this doesn't need to clear root, as when parent is null, it will be set to parent/null
 	    p.right = parent;
 	    return root;

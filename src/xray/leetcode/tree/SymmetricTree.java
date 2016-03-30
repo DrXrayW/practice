@@ -2,6 +2,8 @@ package xray.leetcode.tree;
 
 /*
  * same as Same Tree, just mirror left to right
+ *
+ * [python]
  */
 public class SymmetricTree {
     public boolean isSymmetric(TreeNode root) {

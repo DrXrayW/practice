@@ -4,6 +4,7 @@ import util.Ref;
 
 public class FlattenBinaryTreetoLinkedList {
 	/*
+	[python]
 	 * Given a binary tree, flatten it to a linked list in-place.
 
 For example,
@@ -52,12 +53,16 @@ If you look carefully in the flattened tree, each node's right child points to t
         if(root==null){
             return;
         }
-        TreeNode right = root.right;
+        TreeNode right = root.right;//save right because we will use the right as linkedlist next
         TreeNode preNode = pre.value;
+        /*
+        It is ok to change for preNode as we already saved right in the outter recursion
+         */
         if(preNode!=null){ 
-            preNode.left = null;
+            preNode.left = null; //remember to clear the left
             preNode.right = root;
         }
+
         pre.value = root;
         flatten(root.left, pre);
         flatten(right, pre);
