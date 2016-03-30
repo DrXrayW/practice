@@ -11,6 +11,7 @@ import xray.leetcode.tree.TreeNode;
  * 
  * TIP: the int overflow thing, it is not safe to assume the set upper bound and lower bound of integer are enough: we need to go 1 further and cast them to long
  *
+ *  [python]
  */
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
