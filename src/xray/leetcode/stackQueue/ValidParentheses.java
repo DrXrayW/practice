@@ -26,7 +26,7 @@ public class ValidParentheses {
                     Character top = t.peek();
                     if(close.equals(top)){
                         t.pop();
-                        continue; //Important!!! go next char, instead of falling out
+                        continue; //Important!!! go next char, instead of falling out, skipping the push part
                     }else{
                         return false;
                     }
